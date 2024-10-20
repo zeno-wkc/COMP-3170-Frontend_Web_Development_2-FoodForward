@@ -1,0 +1,24 @@
+.progress-line {
+  content: '';
+  position: absolute;
+  top: calc(25% + 2px);
+  left: 0;
+  height: 8px;
+  border-radius: 3px;
+  background-color: #5DB696;
+  z-index: 1;
+  transform: translateY(-50%);  
+  transition: all 0.3s cubic-bezier(0.48, 0.01, 0.63, 1.09);
+}
+
+.progress-bar-line {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #ddd;
+  z-index: 1;
+  transform: translateY(-50%);
+}

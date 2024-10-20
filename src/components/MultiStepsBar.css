@@ -1,0 +1,106 @@
+.multiProgressBar__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.multiProgressBar__container .progress-bar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  margin: 15px;
+}
+
+.progress-bar__container .circle-btn {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  border: 6px solid #5DB696;
+  border-radius: 50px;
+  border-bottom-right-radius: 20px;
+  background: #fff;
+  color: #333;
+  z-index: 1;
+}
+
+.progress-bar__container .circle-btn.active {
+  background: #5DB696;
+  color: #fff;
+}
+
+.progress-bar__container .circle-btn__container {
+  z-index: 1;
+}
+
+.progress-bar__container .circle-btn__container p {
+  min-height: 30px;
+  max-width: 50px;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 14px;
+  color: #2E2217;
+}
+
+.btns__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+
+.multiProgressBar__container .prev-btn,
+.multiProgressBar__container .next-btn,
+.multiProgressBar__container .submit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  height: 50px;
+  font-weight: 800;
+  color: #999;
+  background-color: #ddd;
+}
+
+.multiProgressBar__container .prev-btn.active,
+.multiProgressBar__container .next-btn.active,
+.multiProgressBar__container .submit-btn {
+  color: #2E2217;
+  background-color: #FFB000;
+}
+
+.multiProgressBar__container .prev-btn,
+.multiProgressBar__container .next-btn,
+.multiProgressBar__container .submit-btn,
+.multiProgressBar__container .prev-btn:hover,
+.multiProgressBar__container .next-btn:hover,
+.multiProgressBar__container .submit-btn:hover {
+  border: none;
+}
+
+.multiProgressBar__container button:focus, 
+.multiProgressBar__container button:focus-visible {
+  outline: none;
+}
+
+.multiProgressBar__container .prev-btn.active:hover,
+.multiProgressBar__container .next-btn.active:hover,
+.multiProgressBar__container .submit-btn:hover {
+  color: #fff;
+}
+
+.multiProgressBar__container .btns__container button:hover svg {
+  stroke: #fff;
+}
+
+.multiProgressBar__container .btns__container button:hover p {
+  color: #fff;
+}
