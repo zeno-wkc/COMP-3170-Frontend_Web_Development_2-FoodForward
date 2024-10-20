@@ -7,8 +7,6 @@ import Donate from './pages/donate';
 import Message from './pages/message';
 import Setting from './pages/setting';
 import Navbar from './components/Navbar';
-import BusinessForm from './components/BusinessForm';
-import PickupForm from './components/PickupForm';
 import './App.css';
 
 function App() {
@@ -24,8 +22,6 @@ function App() {
           <Route path="/setting" element={<Setting />} />
         </Routes>
         <Navbar />
-        <BusinessForm/>
-        <PickupForm/>
       </div>
     </Router>
     </>

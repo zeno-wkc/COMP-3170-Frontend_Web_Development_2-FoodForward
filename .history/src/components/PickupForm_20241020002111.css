@@ -1,0 +1,26 @@
+.form__title{
+    text-align: left;
+}
+
+.form__container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.form__radio-container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:5px;
+}
+
+.form__time-container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+

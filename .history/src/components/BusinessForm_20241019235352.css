@@ -1,0 +1,41 @@
+.form__title{
+    text-align: left;
+}
+
+.form_input-container{
+    display:flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap:5px;
+    margin-bottom: 15px;
+}
+
+.address__container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.location__btn{
+    width:25%;
+    height:20px;
+    font-size: 10px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.location__btn:hover{
+    background-color: #FAE7B2;
+    border: solid 1px #197553;
+}
+
+
+.form__input{
+    width: 100%;
+    height: 30px;
+    background-color:#FAE7B2;
+    border:0px;
+}

@@ -25,7 +25,6 @@ function App() {
         </Routes>
         <Navbar />
         <BusinessForm/>
-        <PickupForm/>
       </div>
     </Router>
     </>

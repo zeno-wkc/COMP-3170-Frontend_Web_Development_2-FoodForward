@@ -1,0 +1,12 @@
+.form__title{
+    text-align: left;
+}
+
+.form_radio-container{
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap:5px;
+    margin-bottom: 15px;
+}
+}
