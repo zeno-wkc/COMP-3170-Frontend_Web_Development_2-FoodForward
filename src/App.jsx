@@ -1,36 +1,29 @@
 import React, { useState } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Login from './components/Login';
-import Logout from './components/Logout';
-
-import { GoogleLogin } from '@react-oauth/google';
-
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/home';
+import Donate from './pages/donate';
+import Message from './pages/message';
+import Setting from './pages/setting';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  return (
+  return(
     <>
-      <div className="container">
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                {user ? (<li><Link to="/logout">Logout</Link></li>) : (<li><Link to="/login">Login</Link></li>)}
-              </ul>
-            </nav>
-            <Routes>
-              <Route path="/login" element={<Login setUser={setUser} />} />
-              <Route path="/logout" element={<Logout setUser={setUser} />} />
-              <Route path="/" element={<h2>Welcome {user ? "back!" : "to our site!"}</h2>} />
-            </Routes>
-          </div>
-        </Router>
+    <Router basename="/COMP-3170-Frontend_Web_Development_2-FoodForward">
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/message" element={<Message />} />
+          <Route path="/setting" element={<Setting />} />
+        </Routes>
+        <Navbar />
       </div>
+    </Router>
     </>
   )
 }
