@@ -18,20 +18,21 @@ const MultiProgressBar = () => {
     <>
       <div className="multiProgressBar__container">
         <div className='progress-bar__container'>
-          <ProgressBar totalSteps={totalSteps} step={step} />
-          <div className='circle-btn__container'>
-            <button className={`circle-btn ${step >= 1 ? 'active' : ''}`} onClick={() => handleStepClick(1)}>1</button>
-            <p>{message[0]}</p>
+          <div className='progress-bar__content'>
+            <ProgressBar totalSteps={totalSteps} step={step} />
+            <div className='circle-btn__container'>
+              <button className={`circle-btn ${step >= 1 ? 'active' : ''}`} onClick={() => handleStepClick(1)}>1</button>
+              <p>{message[0]}</p>
+            </div>
+            <div className='circle-btn__container'>
+              <button className={`circle-btn ${step >= 2 ? 'active' : ''}`} onClick={() => handleStepClick(2)}>2</button>
+              <p>{message[1]}</p>
+            </div>
+            <div className='circle-btn__container'>
+              <button className={`circle-btn ${step >= 3 ? 'active' : ''}`} onClick={() => handleStepClick(3)}>3</button>
+              <p>{message[2]}</p>
+            </div>
           </div>
-          <div className='circle-btn__container'>
-            <button className={`circle-btn ${step >= 2 ? 'active' : ''}`} onClick={() => handleStepClick(2)}>2</button>
-            <p>{message[1]}</p>
-          </div>
-          <div className='circle-btn__container'>
-            <button className={`circle-btn ${step >= 3 ? 'active' : ''}`} onClick={() => handleStepClick(3)}>3</button>
-            <p>{message[2]}</p>
-          </div>
-
         </div>
         <div className='content__container'><Message step={step} /></div>
         <div className='btns__container'>

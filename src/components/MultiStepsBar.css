@@ -6,12 +6,19 @@
   padding-bottom: 20px;
 }
 
-.multiProgressBar__container .progress-bar__container {
+.multiProgressBar__container .progress-bar__container{
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #999;
+  background: #fff;
+}
+
+.multiProgressBar__container .progress-bar__content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: relative;
   top: 0;
   margin: 15px;
 }
@@ -42,6 +49,7 @@
 .progress-bar__container .circle-btn__container p {
   min-height: 30px;
   max-width: 50px;
+  margin-bottom: 0;
   font-size: 9px;
   font-weight: 800;
   line-height: 12px;
