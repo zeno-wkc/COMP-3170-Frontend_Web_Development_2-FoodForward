@@ -50,3 +50,7 @@ margin: 0; line-height: normal;
 .app-container {
   background: #fff;
 }
+
+::placeholder {
+  color: #8f96a3;
+}

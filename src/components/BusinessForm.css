@@ -1,0 +1,71 @@
+.business-form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.business-form label {
+  font-weight: 600;
+  color: #2E2217;
+}
+
+.business-form .form-input {
+  width: calc(100% - 20px);
+  height: 40px;
+  padding-left: 20px;
+  border: 0px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color:#FAE7B2;
+  color: #2E2217;
+}
+
+.address__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.address-input__container {
+  position: relative;
+  width: 100%;
+}
+
+.address-input__container svg {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.business-form .location-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  height: 20px; 
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background: none;
+  color: #2E2217;
+}
+
+.business-form .location-btn:hover {
+  border: 0;
+  color: #197553;
+}
+
+.business-form .location-btn:hover svg {
+  stroke: #197553;
+}
+
+.business-form .location__btn span {
+  display: block;
+}
