@@ -17,18 +17,18 @@ const responsive = {
 };
 
 const sliderImageUrl = [
-  { url: "public/bc.jpg" },
-  { url: "public/cambridge.jpg" },
-  { url: "public/facra_non_verba.jpg" },
-  { url: "public/greater_vancouver.jpg" },
-  { url: "public/bc.jpg" },
-  { url: "public/cambridge.jpg" },
-  { url: "public/facra_non_verba.jpg" },
-  { url: "public/greater_vancouver.jpg" },
-  { url: "public/bc.jpg" },
-  { url: "public/cambridge.jpg" },
-  { url: "public/facra_non_verba.jpg" },
-  { url: "public/greater_vancouver.jpg" },
+  { url: "/public/bc.jpg" },
+  { url: "/public/cambridge.jpg" },
+  { url: "/public/facra_non_verba.jpg" },
+  { url: "/public/greater_vancouver.jpg" },
+  { url: "/public/bc.jpg" },
+  { url: "/public/cambridge.jpg" },
+  { url: "/public/facra_non_verba.jpg" },
+  { url: "/public/greater_vancouver.jpg" },
+  { url: "/public/bc.jpg" },
+  { url: "/public/cambridge.jpg" },
+  { url: "/public/facra_non_verba.jpg" },
+  { url: "/public/greater_vancouver.jpg" },
 ];
 
 function CarouselHungerSpots() {

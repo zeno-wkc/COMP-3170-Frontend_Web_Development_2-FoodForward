@@ -45,6 +45,9 @@
 }
 
 .react-multi-carousel-dot button {
+  width: 10px;
+  height: 10px;
+  border: 0;
   border-color: #FFD985;
   background-color: #FFD985;
 }
