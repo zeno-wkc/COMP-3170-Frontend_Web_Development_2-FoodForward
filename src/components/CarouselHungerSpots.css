@@ -1,0 +1,59 @@
+.carousel__container {
+  width: calc(100% - 30px);
+  min-height: 100px;
+  margin: 0 15px;
+  padding: 0 0 15px;
+  box-sizing: border-box; 
+}
+
+.carousel__container h2 {
+  margin: 15px 2px 0;
+  text-align: left;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin: 0 7px 10px;
+}
+
+.slider img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.react-multi-carousel-list {
+  width: calc(430px - 30px);
+}
+
+.react-multiple-carousel__arrow {
+  width: 40px;
+  height: 40px;
+}
+
+.react-multiple-carousel__arrow--left::before {
+  margin-left: -4px;
+}
+
+.react-multiple-carousel__arrow--right::before {
+  margin-right: -4px;
+}
+
+.react-multi-carousel-dot button {
+  border-color: #FFD985;
+  background-color: #FFD985;
+}
+
+.react-multi-carousel-dot button:hover {
+  border-color: #FFB000;
+}
+.react-multi-carousel-dot button:focus,
+.react-multi-carousel-dot button:focus-visible {
+  outline: 1px solid #FFB000;
+  background: #FFB000;
+}

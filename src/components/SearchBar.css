@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   background-color: #FAF4E2;
+  z-index: 2;
 }
 
 .search-bar__content {

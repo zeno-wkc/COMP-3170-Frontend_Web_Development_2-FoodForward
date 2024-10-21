@@ -1,0 +1,47 @@
+.point-earned-progress__container {
+  margin: 15px;
+}
+
+.point-earned-progress-bar__wrapper {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.point-earned-progress__container h2 {
+  margin: 15px 0;
+  text-align: left;
+  font-size: 26px;
+  font-weight: 800;
+  color: #2E2217;
+}
+
+.progress-bar-markers {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.progress-bar-marker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.progress-bar-circle {
+  width: 16px;
+  height: 16px;
+  background-color: #F7B801;
+  border-radius: 50%;
+}
+
+.progress-bar-marker span {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #2E2217;
+}

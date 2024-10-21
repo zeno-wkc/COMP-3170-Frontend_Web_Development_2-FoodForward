@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import ProgressBar from './ProgressBar';
 import ArrowLeftCircle from './ArrowLeftCircle';
 import ArrowRightCircle from './ArrowRightCircle';
+import FoodItem from './FoodItem';
+import PickupInformation from './PickupInformation';
+import Review from './Review';
 import './MultiStepsBar.css';
 
 const message = ['Food Items', 'Pickup Information', 'Review'];
@@ -65,7 +68,12 @@ function MultiStepsBar() {
 }
 
 function Message({step}){
-  return <h2 style={{color: '#2E2217'}}>{message[step - 1]}</h2>
+  // return <h2 style={{color: '#2E2217'}}>{message[step - 1]}</h2>
+  return (
+    <>
+     {step === 1 ? <FoodItem /> : step === 2 ? <PickupInformation /> : <Review />}
+    </>
+  )
 }
 
 export default MultiStepsBar;
