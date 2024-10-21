@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",
-    "build": "vite build --base=COMP-3170-Frontend_Web_Development_2-FoodForward",
+    "build": "vite build --base=/COMP-3170-Frontend_Web_Development_2-FoodForward/",
     "lint": "eslint .",
     "preview": "vite preview"
   },
