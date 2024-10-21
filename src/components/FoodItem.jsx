@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollNumberBar from "./ScrollNumberBar";
+import FoodCard from './FoodCard';
 import './FoodItem.css';
 
 function FoodItem() {
@@ -7,6 +7,7 @@ function FoodItem() {
     <>
       <div className='food-item__container'>
         <h2>Food Item</h2>
+        <FoodCard />
       </div>
     </>
   )

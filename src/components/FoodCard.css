@@ -1,0 +1,10 @@
+.food-card-content {
+
+}
+
+.food-unit input[type="radio"] {
+  appearance: checkbox;
+  -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+  -moz-appearance: checkbox;    /* Firefox */
+  -ms-appearance: checkbox;     /* not currently supported */
+}

@@ -12,7 +12,8 @@ import './App.css';
 function App() {
   return(
     <>
-    <Router basename="/COMP-3170-Frontend_Web_Development_2-FoodForward">
+    {/* <Router basename="/COMP-3170-Frontend_Web_Development_2-FoodForward"> */}
+    <Router>
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
