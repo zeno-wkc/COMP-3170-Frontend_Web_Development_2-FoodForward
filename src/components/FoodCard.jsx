@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CameraCapture from './PhotoApp';
+import PhotoApp from './PhotoApp';
 import './FoodCard.css';
 
 function FoodCard() {

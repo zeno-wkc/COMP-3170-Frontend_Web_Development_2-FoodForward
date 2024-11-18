@@ -6,13 +6,13 @@ const data = [{
   id: 1, 
   number: 50, 
   message: 'Donations',
-  imgPath: 'public/records.png',
+  imgPath: './records.png',
   alt: 'Records'
 },{
   id: 2, 
   number: 898, 
   message: 'Pounds of food',
-  imgPath: 'public/statistics.png',
+  imgPath: './statistics.png',
   alt: 'Statistics'
 }];
 
