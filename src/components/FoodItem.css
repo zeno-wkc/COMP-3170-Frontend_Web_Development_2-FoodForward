@@ -1,5 +1,16 @@
 .food-item__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 15px;
   font-size: 14px;
   text-align: left;
+}
+
+.btn__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 30px;
 }

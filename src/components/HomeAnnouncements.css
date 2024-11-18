@@ -7,3 +7,12 @@
   margin: 0 15px;
   padding: 15px 0;
 }
+
+.home-announcements__container button {
+  width: 100%;
+}
+
+.home-announcements__container button:hover,
+.home-announcements__container button:active {
+  border-radius: 15px;
+}

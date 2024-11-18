@@ -45,3 +45,18 @@
   font-weight: 800;
   color: #2E2217;
 }
+
+.point-earned-progress-bar__container {
+  height: 1rem;
+  width: 500px;
+  background-color: whitesmoke;
+  border-radius: 12px;
+  margin: 1rem;
+}
+
+.point-earned-progress-bar {
+  height: 100%;
+  background-color: red;
+  border-radius: 12px;
+  text-align: left;
+}

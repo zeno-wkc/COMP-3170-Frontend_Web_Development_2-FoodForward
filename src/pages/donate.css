@@ -4,4 +4,6 @@ h2 {
 
 .donate-page__container {
   padding: 15px 0;
+  height: fit-content;
+  min-height: 100vh;
 }

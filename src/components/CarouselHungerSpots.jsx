@@ -1,20 +1,8 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './CarouselHungerSpots.css';
-
-const responsive = {
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 4,
-    slidesToSlide: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 4,
-    slidesToSlide: 2
-  }
-};
 
 const sliderImageUrl = [
   { url: "./bc.jpg" },
@@ -32,31 +20,38 @@ const sliderImageUrl = [
 ];
 
 function CarouselHungerSpots() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      { breakpoint: 1496, settings: { slidesToShow: 10, slidesToScroll: 10 }},
+      { breakpoint: 1024, settings: { slidesToShow: 8, slidesToScroll: 8 }},
+      { breakpoint: 768, settings: { slidesToShow: 5, slidesToScroll: 5 }},
+      { breakpoint: 480, settings: { slidesToShow: 4, slidesToScroll: 4 }},
+    ],
+  };
+
   return (
-    <>
-    <div className="carousel__container">
+    <div
+      className="slider-container"
+      // style={{ width: `${appContainerWidth - 20}px` }}
+    >
       <h2>Hunger Spots</h2>
-      <div className="carousel__content">
-        <Carousel
-          responsive={responsive}
-          autoPlay={true}
-          swipeable={true}
-          draggable={true}
-          showDots={true}
-          infinite={true}
-          partialVisible={false}
-        >
-          {sliderImageUrl.map((imageUrl, index) => {
+      <Slider {...settings}>
+        { sliderImageUrl.map((image, index) => {
             return (
-              <div className="slider" key={index}>
-                <img src={imageUrl.url} alt={`Hunger spot image ${index + 1}`} />
+              <div className='slider-img__container' key={index}>
+                <img src={image.url} alt={`slider-img-${index}`} />
               </div>
             );
-          })}
-        </Carousel>
-      </div>
+          })
+        }
+      </Slider>
     </div>
-    </>
   );
 }
 

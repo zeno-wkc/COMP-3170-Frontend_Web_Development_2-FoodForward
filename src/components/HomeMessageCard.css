@@ -3,9 +3,11 @@
   background: none;
 }
 
+.home-message-card-btn:active,
+.home-message-card-btn:hover,
 .home-message-card-btn:focus,
 .home-message-card-btn:focus-visible {
-  outline: 4px auto #197553;
+  outline: 4px solid #197553;
   border-radius: 15px;
 }
 

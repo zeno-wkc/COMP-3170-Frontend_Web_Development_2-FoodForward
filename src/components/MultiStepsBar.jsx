@@ -68,10 +68,12 @@ function MultiStepsBar() {
 }
 
 function Message({step}){
+// function Message({step, setFoodItemData, setPickupData, setReviewData }){
   // return <h2 style={{color: '#2E2217'}}>{message[step - 1]}</h2>
   return (
     <>
      {step === 1 ? <FoodItem /> : step === 2 ? <PickupInformation /> : <Review />}
+     {/* {step === 1 ? <FoodItem setFoodItemData={setFoodItemData} /> : step === 2 ? <PickupInformation setPickupData={setPickupData} /> : <Review setReviewData={setReviewData} />} */}
     </>
   )
 }

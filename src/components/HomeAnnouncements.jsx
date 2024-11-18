@@ -6,12 +6,12 @@ const data = [{
   id: 1, 
   title: 'Donate Now!', 
   message: 'Share your leftover food with organizations in need',
-  // imgPath: 'public/donate.jpg'
+  imgPath: 'donate.jpg'
 },{
   id: 2, 
   title: 'Guidelines', 
   message: 'Read about donation guidelines',
-  // imgPath: 'public/guideline.jpg'
+  imgPath: 'guideline.jpg'
 }];
 
 const cardsListing = (data) => {
