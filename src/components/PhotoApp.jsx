@@ -1,43 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-function PhotoApp() {
-  const [photoSource, setPhotoSource] = useState(null); // Holds the photo (camera or album)
-  const [isUsingCamera, setIsUsingCamera] = useState(false); // Toggles camera mode
+const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
+  const [photoSource, setPhotoSource] = useState(currentPhoto);
+  const [activeCamera, setActiveCamera] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const videoRef = useRef(null);
+  const [capturedPhoto, setCapturedPhoto] = useState(null);
 
-  // Access the camera and take a photo
+  useEffect(() => {
+    setPhotoSource(currentPhoto);
+  }, [currentPhoto]);
+
   const openCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      const video = document.querySelector("video");
-      video.srcObject = stream;
-      video.play();
-      setIsUsingCamera(true);
+      setShowModal(true);
+      setActiveCamera(true);
     } catch (error) {
-      alert("Unable to access the camera. Please ensure permissions are granted.");
+      console.error("Error opening the camera:", error);
+      alert("Unable to access the camera.");
     }
   };
 
-  // Capture photo from the camera
+  useEffect(() => {
+    const enableCamera = async () => {
+      if (activeCamera && videoRef.current) {
+        try {
+          console.log(videoRef.current);
+          const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+          videoRef.current.srcObject = stream;
+          videoRef.current.play();
+        } catch (error) {
+          console.error("Error accessing camera:", error);
+          alert("Unable to access the camera.");
+        }
+      }
+    };
+
+    enableCamera();
+  }, [activeCamera]);
+
   const capturePhoto = () => {
-    const video = document.querySelector("video");
+    const video = videoRef.current;
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    const photo = canvas.toDataURL("image/png");
-    setPhotoSource(photo);
+    const photo = canvas.toDataURL("image/jpg");
+    setCapturedPhoto(photo);
 
-    // Stop the camera
     const stream = video.srcObject;
-    const tracks = stream.getTracks();
+    const tracks = stream.getTracks({ audio: false, video: true });
     tracks.forEach((track) => track.stop());
     video.srcObject = null;
-    setIsUsingCamera(false);
+    setActiveCamera(false);
   };
 
-  // Handle photo album selection
   const handlePhotoAlbum = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -46,127 +65,137 @@ function PhotoApp() {
     }
   };
 
-  // Retake or reset photo
   const resetPhoto = () => {
-    setPhotoSource(null);
-    setIsUsingCamera(false);
+    setCapturedPhoto(null);
+    setActiveCamera(true);
+  };
+
+  const closeModal = () => {
+    setCapturedPhoto(null);
+    setActiveCamera(false);
+    setShowModal(false);
+  };
+
+  const confirmPhoto = () => {
+    setPhotoSource(capturedPhoto);
+    onPhotoChange(capturedPhoto);
+    closeModal();
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div>
       <h2>Photo App</h2>
-
-      {/* Show buttons if no photo is taken/selected */}
-      {!photoSource && !isUsingCamera && (
+      {!photoSource && !activeCamera && !showModal && (
         <div>
-          <button
-            onClick={openCamera}
-            style={{
-              backgroundColor: "#007bff",
-              color: "#fff",
-              padding: "10px 20px",
-              margin: "10px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Take Photo
-          </button>
-          <label
-            htmlFor="photo-album"
-            style={{
-              backgroundColor: "#28a745",
-              color: "#fff",
-              padding: "10px 20px",
-              margin: "10px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Choose from Album
-          </label>
-          <input
-            id="photo-album"
-            type="file"
-            accept="image/*"
-            onChange={handlePhotoAlbum}
-            style={{ display: "none" }}
-          />
+          <button onClick={openCamera} style={buttonStyle}>Open Camera</button>
+          <label htmlFor="photo-album" style={buttonStyle}>Choose from Album </label>
+          <input id="photo-album" type="file" accept="image/*" onChange={handlePhotoAlbum} style={{ display: "none" }} />
         </div>
       )}
 
-      {/* Show video stream when using the camera */}
-      {isUsingCamera && (
-        <div>
-          <video autoPlay style={{ width: "100%", maxWidth: "400px", margin: "10px auto" }}></video>
-          <button
-            onClick={capturePhoto}
-            style={{
-              backgroundColor: "#007bff",
-              color: "#fff",
-              padding: "10px 20px",
-              margin: "10px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Capture Photo
-          </button>
-          <button
-            onClick={resetPhoto}
-            style={{
-              backgroundColor: "#dc3545",
-              color: "#fff",
-              padding: "10px 20px",
-              margin: "10px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Cancel
-          </button>
+      {showModal && (
+        <div style={modalStyle}>
+          <div style={modalContentStyle}>
+            <button onClick={closeModal} style={closeButtonStyle}>X</button>
+            {activeCamera && (
+              <div>
+                <video ref={videoRef} autoPlay style={{ width: "100%", height: "auto", border: "1px solid black", marginTop: "10px" }} ></video>
+                <button onClick={capturePhoto} style={buttonStyle}>
+                  Take Photo
+                </button>
+              </div>
+            )}
+            {capturedPhoto && (
+              <div>
+                <h3>Photo Preview:</h3>
+                <img src={capturedPhoto} alt="Captured" style={imageStyle} />
+                <button onClick={resetPhoto} style={buttonStyle}>
+                  Retake
+                </button>
+                <button onClick={confirmPhoto} style={buttonStyle}>
+                  Confirm
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
-      {/* Show the captured or selected photo */}
-      {photoSource && (
+      {photoSource && !showModal && (
         <div>
-          <h3>Photo Preview:</h3>
-          <img
-            src={photoSource}
-            alt="Captured"
-            style={{
-              width: "100%",
-              maxWidth: "400px",
-              borderRadius: "8px",
-              marginTop: "10px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            }}
-          />
+          <p>a</p>
+          <img src={photoSource} alt="Captured" style={imageStyle} />
           <div>
-            <button
-              onClick={resetPhoto}
-              style={{
-                backgroundColor: "#ffc107",
-                color: "#000",
-                padding: "10px 20px",
-                margin: "10px",
-                borderRadius: "5px",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              Retake/Choose Again
-            </button>
+            {isEditing && (
+              <>
+                <button onClick={openCamera} style={buttonStyle}>Retake Photo</button>
+                <label htmlFor="photo-album" style={buttonStyle}>Choose from Album</label>
+                <input
+                  id="photo-album"
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePhotoAlbum}
+                  style={{ display: "none" }}
+                />
+              </>
+            )}
           </div>
         </div>
       )}
     </div>
   );
-}
+};
+
+const buttonStyle = {
+  backgroundColor: "#007bff",
+  color: "#fff",
+  padding: "10px 20px",
+  margin: "10px",
+  borderRadius: "5px",
+  border: "none",
+  cursor: "pointer",
+};
+
+const closeButtonStyle = {
+  position: "absolute",
+  top: "10px",
+  right: "10px",
+  backgroundColor: "#dc3545",
+  color: "#fff",
+  padding: "5px 10px",
+  borderRadius: "50%",
+  border: "none",
+  cursor: "pointer",
+};
+
+const modalStyle = {
+  position: "fixed",
+  top: "0",
+  left: "0",
+  right: "0",
+  bottom: "0",
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: "1000",
+};
+
+const modalContentStyle = {
+  position: "relative",
+  backgroundColor: "#fff",
+  padding: "20px",
+  borderRadius: "10px",
+  width: "90%",
+  maxWidth: "500px",
+};
+
+const imageStyle = {
+  width: "100%",
+  maxWidth: "400px",
+  borderRadius: "8px",
+  marginTop: "10px",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+};
 
 export default PhotoApp;
