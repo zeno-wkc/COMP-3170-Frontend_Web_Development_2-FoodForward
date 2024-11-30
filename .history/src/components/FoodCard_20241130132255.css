@@ -1,8 +1,9 @@
 .food-card__container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
   width: 100%;
   margin-bottom: 15px;
 }
@@ -83,7 +84,7 @@
 .food-card-content {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   color: #000;
 }
 
@@ -94,7 +95,6 @@
   gap: 20px;
   width: 100%;
   font-weight: 600;
-  padding-bottom: 10px;
 }
 
 .food-unit input[type="radio"] {
@@ -107,13 +107,3 @@
 .refrigerated {
   font-weight: 600; 
 }
-
-.card-actions{
-  margin-top: 20px;
-}
-
-.confirm-btn{
-  background-color: #197553;
-  color: #fff;
-}
-

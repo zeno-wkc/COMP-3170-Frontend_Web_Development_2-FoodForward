@@ -203,9 +203,9 @@ const imageStyle = {
 };
 
 const photoIconStyle = {
-  width: "60px",
-  height: "30px",
-  margin: "10px",
+  width: "120px",
+  height: "90px",
+  margin: "20px",
 };
 
 const upload_photo_container = {
@@ -225,13 +225,6 @@ const foodIconStyle = {
   width: "100%",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-};
-
-const placeholder = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
   alignItems: "center",
 };
 

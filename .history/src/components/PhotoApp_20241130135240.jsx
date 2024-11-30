@@ -203,9 +203,9 @@ const imageStyle = {
 };
 
 const photoIconStyle = {
-  width: "60px",
-  height: "30px",
-  margin: "10px",
+  width: "70px",
+  height: "40px",
+  margin: "20px",
 };
 
 const upload_photo_container = {

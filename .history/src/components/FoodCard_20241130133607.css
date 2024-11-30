@@ -1,8 +1,9 @@
 .food-card__container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
   width: 100%;
   margin-bottom: 15px;
 }
@@ -107,13 +108,3 @@
 .refrigerated {
   font-weight: 600; 
 }
-
-.card-actions{
-  margin-top: 20px;
-}
-
-.confirm-btn{
-  background-color: #197553;
-  color: #fff;
-}
-

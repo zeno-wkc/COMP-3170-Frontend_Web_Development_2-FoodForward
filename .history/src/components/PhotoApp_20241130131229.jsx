@@ -83,14 +83,11 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   };
 
   return (
-    <div style={upload_photo_container}>
+    <div>
       <h3>Add the photo of food</h3>
       {!photoSource && !activeCamera && !showModal && (
-        <div style={photo_container}>
-          <div style={placeholder}>
-            <img src="./public/upload icon.png" alt="upload" style={photoIconStyle}></img>
-            <img src="./public/food_placeholder.png" alt="food items" style={foodIconStyle}></img>
-          </div>
+        <div>
+          <img src="./public/upload icon.png" alt="upload" width={150}></img>
           <button onClick={openCamera} style={buttonStyle}>Open Camera</button>
           <label htmlFor="photo-album" style={buttonStyle}>Choose from Album </label>
           <input id="photo-album" type="file" accept="image/*" onChange={handlePhotoAlbum} style={{ display: "none" }} />
@@ -200,39 +197,6 @@ const imageStyle = {
   borderRadius: "8px",
   marginTop: "10px",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-};
-
-const photoIconStyle = {
-  width: "60px",
-  height: "30px",
-  margin: "10px",
-};
-
-const upload_photo_container = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
-
-const photo_container = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
-
-const foodIconStyle = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
-
-const placeholder = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
 };
 
 export default PhotoApp;

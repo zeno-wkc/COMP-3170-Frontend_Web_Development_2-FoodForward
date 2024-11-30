@@ -110,10 +110,5 @@
 
 .card-actions{
   margin-top: 20px;
+  background-color: blue;
 }
-
-.confirm-btn{
-  background-color: #197553;
-  color: #fff;
-}
-

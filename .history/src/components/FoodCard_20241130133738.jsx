@@ -269,7 +269,7 @@ function FoodCard({ newCard, onConfirm }) {
         {/* Food Quantity Section */}
         <div className="food-quantity">
           <div className="range-select__container">
-            <h3>Food Quantity</h3>
+            <h2>Food Quantity</h2>
             <input type="range" min="0" max="50" value={value} disabled={!isEditing} onChange={handleChange} style={{ background: `linear-gradient(to right, darkgreen ${ value * 2 }%, black ${value * 2}%)` }} />
             <div className="food-range-number">
               <span style={{ marginRight: "8px" }}>0</span>
