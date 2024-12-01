@@ -10,8 +10,6 @@
 .create-food__btn{
   background-color: #197553;
   color: #fff;
-  font-weight: 600;
-  margin-bottom: 30px;
 }
 .btn__container {
   display: flex;

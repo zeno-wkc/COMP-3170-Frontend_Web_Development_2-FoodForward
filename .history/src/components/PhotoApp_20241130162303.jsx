@@ -84,7 +84,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
 
   return (
     <div style={upload_photo_container}>
-      <h3>Add the photo of food items</h3>
+      <h3>Add the photo of food item</h3>
       {!photoSource && !activeCamera && !showModal && (
         <div style={photo_container}>
           <div style={placeholder}>
@@ -215,14 +215,14 @@ const upload_photo_container = {
 };
 
 const photo_container = {
-  width: "90%",
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
 };
 
 const foodIconStyle = {
-  width: "80%",
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

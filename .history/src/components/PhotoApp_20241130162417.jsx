@@ -215,14 +215,14 @@ const upload_photo_container = {
 };
 
 const photo_container = {
-  width: "90%",
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
 };
 
 const foodIconStyle = {
-  width: "80%",
+  width: "90%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
