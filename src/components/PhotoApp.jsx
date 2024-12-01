@@ -127,7 +127,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
 
       {photoSource && !showModal && (
         <div>
-          <p>a</p>
+          <p></p>
           <img src={photoSource} alt="Captured" style={imageStyle} />
           <div>
             {isEditing && (
