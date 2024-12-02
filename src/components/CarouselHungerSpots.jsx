@@ -9,14 +9,11 @@ const sliderImageUrl = [
   { url: "./cambridge.jpg" },
   { url: "./facra_non_verba.jpg" },
   { url: "./greater_vancouver.jpg" },
-  { url: "./bc.jpg" },
-  { url: "./cambridge.jpg" },
-  { url: "./facra_non_verba.jpg" },
-  { url: "./greater_vancouver.jpg" },
-  { url: "./bc.jpg" },
-  { url: "./cambridge.jpg" },
-  { url: "./facra_non_verba.jpg" },
-  { url: "./greater_vancouver.jpg" },
+  { url: "./food_banks.png" },
+  { url: "./food_runners.png" },
+  { url: "./food_stash.png" },
+  { url: "./vancouver_school_board.jpg" },
+  { url: "./zero_food_waste.png" },
 ];
 
 function CarouselHungerSpots() {
