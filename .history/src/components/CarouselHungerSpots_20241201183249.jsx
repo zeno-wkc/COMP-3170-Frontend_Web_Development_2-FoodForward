@@ -12,7 +12,7 @@ const sliderImageUrl = [
   { url: "./food banks.png" },
   { url: "./food runners.png" },
   { url: "./food stash.png" },
-  { url: "./vancouver school board.jpg" },
+  { url: "./zero food waste.png" },
   { url: "./bc.jpg" },
   { url: "./cambridge.jpg" },
   { url: "./facra_non_verba.jpg" },
