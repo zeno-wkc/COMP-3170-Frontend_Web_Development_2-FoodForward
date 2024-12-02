@@ -1,22 +1,27 @@
 import React from 'react';
 import HomeMessageCard from './HomeMessageCard';
 import './HomeAnnouncements.css';
+import { Link } from'react-router-dom';
 
 const data = [{
   id: 1, 
   title: 'Donate Now!', 
   message: 'Share your leftover food with organizations in need',
-  imgPath: 'donate.jpg'
+  imgPath: 'donate.jpg',
+  path: '/donate'
 },{
   id: 2, 
   title: 'Guidelines', 
   message: 'Read about donation guidelines',
-  imgPath: 'guideline.jpg'
+  imgPath: 'guideline.jpg',
+  path: ''
 }];
 
 const cardsListing = (data) => {
   return data.map(({ id, title, message, imgPath }) => (
-    <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} />
+    <Link to='/donate'>
+      <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} />
+    </Link>
   ));
 }
 
