@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import HomeAnnouncements from '../components/HomeAnnouncements';
 import CarouselHungerSpots from '../components/CarouselHungerSpots';
@@ -7,6 +7,10 @@ import PointEarned from '../components/PointEarned';
 import './home.css';
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
   return (
     <>      
       <div className='donate-page__container'>

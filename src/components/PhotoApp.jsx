@@ -87,6 +87,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     <div>
       {!photoSource && !activeCamera && !showModal && (
         <div className="button_container">
+          <h3 className="photo-title">Food Photo:</h3>
           <button onClick={openCamera} className="photo-app-btn">Open Camera</button>
           <label htmlFor="photo-album" className="photo-app-btn">Choose from Album</label>
           <input id="photo-album" type="file" accept="image/*" onChange={handlePhotoAlbum} style={{ display: "none" }} />
@@ -107,7 +108,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             )}
             {capturedPhoto && (
               <div>
-                <h3>Photo Preview:</h3>
+                <h3 className="photo-title">Photo Preview:</h3>
                 <img src={capturedPhoto} alt="Captured" className="photo-app-img"/>
                 <button onClick={resetPhoto} className="photo-app-btn">
                   Retake
