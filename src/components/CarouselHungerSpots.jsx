@@ -20,7 +20,9 @@ function CarouselHungerSpots() {
   const settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
     speed: 500,
+    autoplaySpeed: 2500,
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
