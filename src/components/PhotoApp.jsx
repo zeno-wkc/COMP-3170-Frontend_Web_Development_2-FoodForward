@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./PhotoApp.css";
 
 const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const [photoSource, setPhotoSource] = useState(currentPhoto);
@@ -84,11 +85,10 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
 
   return (
     <div>
-      <h2>Photo App</h2>
       {!photoSource && !activeCamera && !showModal && (
-        <div>
-          <button onClick={openCamera} style={buttonStyle}>Open Camera</button>
-          <label htmlFor="photo-album" style={buttonStyle}>Choose from Album </label>
+        <div className="button_container">
+          <button onClick={openCamera} className="photo-app-btn">Open Camera</button>
+          <label htmlFor="photo-album" className="photo-app-btn">Choose from Album</label>
           <input id="photo-album" type="file" accept="image/*" onChange={handlePhotoAlbum} style={{ display: "none" }} />
         </div>
       )}
@@ -100,7 +100,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             {activeCamera && (
               <div>
                 <video ref={videoRef} autoPlay style={{ width: "100%", height: "auto", border: "1px solid black", marginTop: "10px" }} ></video>
-                <button onClick={capturePhoto} style={buttonStyle}>
+                <button onClick={capturePhoto} className="photo-app-btn">
                   Take Photo
                 </button>
               </div>
@@ -108,11 +108,11 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             {capturedPhoto && (
               <div>
                 <h3>Photo Preview:</h3>
-                <img src={capturedPhoto} alt="Captured" style={imageStyle} />
-                <button onClick={resetPhoto} style={buttonStyle}>
+                <img src={capturedPhoto} alt="Captured" className="photo-app-img"/>
+                <button onClick={resetPhoto} className="photo-app-btn">
                   Retake
                 </button>
-                <button onClick={confirmPhoto} style={buttonStyle}>
+                <button onClick={confirmPhoto} className="photo-app-btn">
                   Confirm
                 </button>
               </div>
@@ -124,12 +124,12 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
       {photoSource && !showModal && (
         <div>
           <p>a</p>
-          <img src={photoSource} alt="Captured" style={imageStyle} />
+          <img src={photoSource} alt="Captured" className="photo-app-img" />
           <div>
             {isEditing && (
               <>
-                <button onClick={openCamera} style={buttonStyle}>Retake Photo</button>
-                <label htmlFor="photo-album" style={buttonStyle}>Choose from Album</label>
+                <button onClick={openCamera} className="photo-app-btn">Retake Photo</button>
+                <label htmlFor="photo-album" className="photo-app-btn">Choose from Album</label>
                 <input
                   id="photo-album"
                   type="file"
@@ -144,16 +144,6 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
       )}
     </div>
   );
-};
-
-const buttonStyle = {
-  backgroundColor: "#007bff",
-  color: "#fff",
-  padding: "10px 20px",
-  margin: "10px",
-  borderRadius: "5px",
-  border: "none",
-  cursor: "pointer",
 };
 
 const closeButtonStyle = {

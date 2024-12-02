@@ -14,3 +14,7 @@
   align-items: flex-end;
   margin-bottom: 30px;
 }
+
+.food-item-btn {
+  background-color: #5DB696;
+}

@@ -1,0 +1,39 @@
+.button_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.photo-app-btn:first-of-type {
+  margin-top: 20px;
+}
+
+.photo-app-btn {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #FFB000;
+  color: #2E2217;
+  cursor: pointer;
+}
+
+label.photo-app-btn {
+  display: block;
+  width: calc(100% - 40px);
+  margin-top: 0 !important;
+}
+
+.photo-app-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

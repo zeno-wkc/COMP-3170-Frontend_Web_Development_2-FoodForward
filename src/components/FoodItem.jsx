@@ -21,7 +21,7 @@ function FoodCardManager() {
   return (
     <div className='food-item__container'>
       <h2>Food Item</h2>
-      <button onClick={addNewFoodCard} disabled={!newFoodCard}>
+      <button onClick={addNewFoodCard} className="food-item-btn" disabled={!newFoodCard}>
         Create Donate Food Items
       </button>
       <div className='btn__container'>
