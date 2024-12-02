@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HomeMessageCard from './HomeMessageCard';
 import './HomeAnnouncements.css';
 
@@ -17,7 +18,7 @@ const data = [{
 
 const cardsListing = (data) => {
   return data.map(({ id, title, message, imgPath, link }) => (
-    <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} link={link} />
+    <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} />
   ));
 }
 

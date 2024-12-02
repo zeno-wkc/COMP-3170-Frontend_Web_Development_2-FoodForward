@@ -6,8 +6,7 @@ const data = [{
   id: 1, 
   title: 'Donate Now!', 
   message: 'Share your leftover food with organizations in need',
-  imgPath: 'donate.jpg',
-  link: '/donate',
+  imgPath: 'donate.jpg'
 },{
   id: 2, 
   title: 'Guidelines', 
@@ -16,8 +15,8 @@ const data = [{
 }];
 
 const cardsListing = (data) => {
-  return data.map(({ id, title, message, imgPath, link }) => (
-    <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} link={link} />
+  return data.map(({ id, title, message, imgPath }) => (
+    <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} />
   ));
 }
 
