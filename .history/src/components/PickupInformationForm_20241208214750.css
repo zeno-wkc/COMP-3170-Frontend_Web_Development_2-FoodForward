@@ -1,0 +1,157 @@
+.pickup-information-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.pickup-information-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2E2217;
+}
+
+.pickup-information-form .form-input {
+  width: calc(100% - 20px);
+  height: 40px;
+  padding-left: 20px;
+  border: 0px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #FAE7B2;
+  color: #2E2217;
+}
+
+.donation__container,
+.single-donation__container,
+.recurring-donation__container,
+.pickup-time__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 5px;
+}
+
+.recurring-donation__container {
+  padding-right: 10px;
+}
+
+.single-donation__container input,
+.recurring-donation__container input {
+  width: 20px;
+  height: 20px;
+}
+
+.time-input__container {
+  position: relative;
+  width: 100%;
+}
+
+.time-input__container svg {
+  position: absolute;
+  top: 66%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.time-input__container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.time-input__container select {
+  width: 100%;
+  height: 40px;
+  padding-left: 40px;
+  border-radius: 20px;
+  appearance: none;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #FAE7B2;
+  color: #2E2217;
+}
+
+/* Style the calendar container */
+.react-datepicker {
+  border: 1px solid #2e2217; /* Add border color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+/* Style the header (month/year) */
+.react-datepicker__header {
+  background-color: #2e2217; /* Dark background */
+  color: #ffffff; /* White text */
+  border-bottom: 1px solid #ffffff;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style the days grid */
+.react-datepicker__month {
+  margin: 0;
+  padding: 10px;
+  background-color: #f9f9f9; /* Light background */
+}
+
+/* Style individual days */
+.react-datepicker__day {
+  font-size: 14px;
+  color: #333; /* Dark text */
+  padding: 5px;
+  border-radius: 50%; /* Circular day buttons */
+  transition: background-color 0.3s ease;
+}
+
+.react-datepicker__day:hover {
+  background-color: #2e2217; /* Hover effect */
+  color: #fff; /* White text on hover */
+}
+
+/* Highlight the selected day */
+.react-datepicker__day--selected {
+  background-color: #2e2217;
+  color: #ffffff;
+}
+
+/* Style the navigation buttons (previous/next) */
+.react-datepicker__navigation {
+  top: 15px;
+  border: none;
+  background: none;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #ffffff; /* White arrows */
+}
+.react-datepicker__navigation--previous .react-datepicker__navigation-icon::before {
+  border-right-color: #ffffff;
+}
+
+.react-datepicker__navigation--next .react-datepicker__navigation-icon::before {
+  border-left-color: #ffffff;
+}
+
+/* Style today’s date */
+.react-datepicker__day--today {
+  font-weight: bold;
+  border: 1px solid #2e2217;
+}
+
+.react-datepicker__input-container input {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: #2e2217;
+  box-shadow: 0 0 5px rgba(46, 34, 23, 0.5);
+}

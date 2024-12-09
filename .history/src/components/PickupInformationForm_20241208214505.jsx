@@ -3,7 +3,6 @@ import CalendarIcon from './CalendarIcon';
 import ClockIcon from './ClockIcon';
 import DatePicker from 'react-datepicker';
 import './PickupInformationForm.css';
-import 'react-datepicker/dist/react-datepicker.css';
 
 function PickupInformationForm() {
   const [donationType, setDonationType] = useState('single-donation'); 
@@ -37,12 +36,11 @@ function PickupInformationForm() {
               checked={donationType === 'recurring-donation'}
               onChange={handleDonationChange} 
             />
-            <label For="recurring-donation">Recurring-donation</label>
+            <label htmlFor="recurring-donation">Recurring-donation</label>
           </div>
         </div>
         <label>Pickup Date:</label>
-        {/* <div className='address-input__container'> */}
-        <div className='date-input__container'>
+        <div className='address-input__container'>
           <CalendarIcon size="24" color="#2E2217"/>
           <DatePicker
             selected={pickupDate}

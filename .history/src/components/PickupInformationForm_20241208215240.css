@@ -23,11 +23,8 @@
   color: #2E2217;
 }
 
-.date-input__container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
+.address-input__container {
+  position: relative;
   width: 100%;
 }
 

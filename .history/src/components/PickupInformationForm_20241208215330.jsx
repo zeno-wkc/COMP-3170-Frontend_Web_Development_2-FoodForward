@@ -41,8 +41,7 @@ function PickupInformationForm() {
           </div>
         </div>
         <label>Pickup Date:</label>
-        {/* <div className='address-input__container'> */}
-        <div className='date-input__container'>
+        <div className='address-input__container'>
           <CalendarIcon size="24" color="#2E2217"/>
           <DatePicker
             selected={pickupDate}

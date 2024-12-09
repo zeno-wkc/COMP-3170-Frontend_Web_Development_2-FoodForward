@@ -27,13 +27,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
   width: 100%;
 }
 
 .donation__container,
 .single-donation__container,
 .recurring-donation__container,
+.date-input__container,
 .pickup-time__container {
   display: flex;
   flex-direction: row;

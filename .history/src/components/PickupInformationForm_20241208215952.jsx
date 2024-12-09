@@ -48,7 +48,7 @@ function PickupInformationForm() {
             selected={pickupDate}
             onChange={(date) => setPickupDate(date)}
             placeholderText="Select a date"
-            className="form-input"
+            className="time-input__container"
           />
           {/* <input className="form-input" type="text" name="address" placeholder="" /> */}
         </div>

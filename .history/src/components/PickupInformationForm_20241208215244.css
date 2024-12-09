@@ -23,13 +23,6 @@
   color: #2E2217;
 }
 
-.date-input__container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-}
 
 .donation__container,
 .single-donation__container,

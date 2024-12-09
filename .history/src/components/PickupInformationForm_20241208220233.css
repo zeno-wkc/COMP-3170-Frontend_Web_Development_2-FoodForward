@@ -26,9 +26,10 @@
 .date-input__container{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 15px;
+  align-items: center; */
+  /* gap: 15px;
   width: 100%;
+  position: relative;
 }
 
 .donation__container,

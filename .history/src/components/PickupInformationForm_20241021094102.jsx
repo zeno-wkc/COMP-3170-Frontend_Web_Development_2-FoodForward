@@ -1,56 +1,26 @@
-import {React, useState} from 'react';
+import React from 'react';
 import CalendarIcon from './CalendarIcon';
 import ClockIcon from './ClockIcon';
-import DatePicker from 'react-datepicker';
 import './PickupInformationForm.css';
-import 'react-datepicker/dist/react-datepicker.css';
 
 function PickupInformationForm() {
-  const [donationType, setDonationType] = useState('single-donation'); 
-  const [pickupDate, setPickupDate] = useState(null); 
-
-  const handleDonationChange = (e) => {
-    setDonationType(e.target.value);
-  };
-
   return (
     <>
       <form className='pickup-information-form'>
         <div className='donation__container'>
           <div className='single-donation__container'>
-            <input 
-              type="radio" 
-              id="single-donation" 
-              name="single-donation" 
-              value="single-donation" 
-              checked={donationType === 'single-donation'}
-              onChange={handleDonationChange} 
-            />
-            <label htmlfor="single-donation">Single-donation</label>
+            <input type="radio" id="single-donation" name="single-donation" value="single-donation" checked />
+            <label for="single-donation">Single-donation</label>
           </div>
           <div className='recurring-donation__container'>
-            <input 
-              type="radio" 
-              id="recurring-donation" 
-              name="recurring-donation" 
-              value="recurring-donation" 
-              checked={donationType === 'recurring-donation'}
-              onChange={handleDonationChange} 
-            />
-            <label For="recurring-donation">Recurring-donation</label>
+            <input type="radio" id="recurring-donation" name="recurring-donation" value="recurring-donation" checked />
+            <label for="recurring-donation">Recurring-donation</label>
           </div>
         </div>
         <label>Pickup Date:</label>
-        {/* <div className='address-input__container'> */}
-        <div className='date-input__container'>
+        <div className='address-input__container'>
           <CalendarIcon size="24" color="#2E2217"/>
-          <DatePicker
-            selected={pickupDate}
-            onChange={(date) => setPickupDate(date)}
-            placeholderText="Select a date"
-            className="form-input"
-          />
-          {/* <input className="form-input" type="text" name="address" placeholder="" /> */}
+          <input className="form-input" type="text" name="address" placeholder="" />
         </div>
         <div className='pickup-time__container'>
           <div className='time-input__container'>          
