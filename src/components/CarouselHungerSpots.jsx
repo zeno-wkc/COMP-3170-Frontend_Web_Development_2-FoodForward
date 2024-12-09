@@ -5,15 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import './CarouselHungerSpots.css';
 
 const sliderImageUrl = [
-  { url: "./bc.jpg" },
-  { url: "./cambridge.jpg" },
-  { url: "./facra_non_verba.jpg" },
-  { url: "./greater_vancouver.jpg" },
-  { url: "./food_banks.png" },
-  { url: "./food_runners.png" },
-  { url: "./food_stash.png" },
-  { url: "./vancouver_school_board.jpg" },
-  { url: "./zero_food_waste.png" },
+  { url: "./bc.jpg", link: "https://www.foodbanksbc.com/" },
+  { url: "./cambridge.jpg", link: "https://cambridgefoodbank.org/" },
+  { url: "./facra_non_verba.jpg", link: "https://www.vsb.bc.ca/windermere" },
+  { url: "./greater_vancouver.jpg", link: "https://foodbank.bc.ca/?form=joy" },
+  { url: "./food_banks.png", link: "https://foodbankscanada.ca/" },
+  { url: "./food_runners.png", link: "https://www.vancouverfoodrunners.com/" },
+  { url: "./food_stash.png", link: "https://www.foodstash.ca/" },
+  { url: "./vancouver_school_board.jpg", link: "https://www.vsb.bc.ca/"},
+  { url: "./zero_food_waste.png", link: "https://www.zerofoodwaste.ca/" },
 ];
 
 function CarouselHungerSpots() {
@@ -44,7 +44,9 @@ function CarouselHungerSpots() {
         { sliderImageUrl.map((image, index) => {
             return (
               <div className='slider-img__container' key={index}>
-                <img src={image.url} alt={`slider-img-${index}`} />
+                <a href={image.link} target="_blank" rel="noopener noreferrer">
+                  <img src={image.url} alt={`slider-img-${index}`} />
+                </a>
               </div>
             );
           })
