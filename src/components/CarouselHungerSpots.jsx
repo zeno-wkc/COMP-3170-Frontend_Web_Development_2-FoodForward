@@ -6,15 +6,15 @@ import './CarouselHungerSpots.css';
 import { Link } from "react-router-dom";
 
 const sliderImageUrl = [
-  { url: "./bc.jpg", link: "https://www.foodbanksbc.com/" },
-  { url: "./cambridge.jpg", link: "https://cambridgefoodbank.org/" },
-  { url: "./facra_non_verba.jpg", link: "https://www.vsb.bc.ca/windermere" },
-  { url: "./greater_vancouver.jpg", link: "https://foodbank.bc.ca/?form=joy" },
-  { url: "./food_banks.png", link: "https://foodbankscanada.ca/" },
-  { url: "./food_runners.png", link: "https://www.vancouverfoodrunners.com/" },
-  { url: "./food_stash.png", link: "https://www.foodstash.ca/" },
-  { url: "./vancouver_school_board.jpg", link: "https://www.vsb.bc.ca/"},
-  { url: "./zero_food_waste.png", link: "https://www.zerofoodwaste.ca/" },
+  { url: "./bc.jpg", WEBSITE_URL: "https://www.foodbanksbc.com/" },
+  { url: "./cambridge.jpg", WEBSITE_URL: "https://cambridgefoodbank.org/" },
+  { url: "./facra_non_verba.jpg", WEBSITE_URL: "https://www.vsb.bc.ca/windermere" },
+  { url: "./greater_vancouver.jpg", WEBSITE_URL: "https://foodbank.bc.ca/?form=joy" },
+  { url: "./food_banks.png", WEBSITE_URL: "https://foodbankscanada.ca/" },
+  { url: "./food_runners.png", WEBSITE_URL: "https://www.vancouverfoodrunners.com/" },
+  { url: "./food_stash.png", WEBSITE_URL: "https://www.foodstash.ca/" },
+  { url: "./vancouver_school_board.jpg", WEBSITE_URL: "https://www.vsb.bc.ca/"},
+  { url: "./zero_food_waste.png", WEBSITE_URL: "https://www.zerofoodwaste.ca/" },
 ];
 
 function CarouselHungerSpots() {
