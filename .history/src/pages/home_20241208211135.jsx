@@ -14,7 +14,7 @@ function Home() {
   return (
     <>      
       <div className='donate-page__container'>
-        <h2>Welcome to Food Forward</h2>
+        <h2>Home Page</h2>
         <SearchBar />
         <HomeAnnouncements />
         <CarouselHungerSpots />
