@@ -8,7 +8,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const [showModal, setShowModal] = useState(false);
   const videoRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
-  const [confirmedPhotos, setConfirmedPhotos] = useState([]);  // New state to hold confirmed photos
+  const [isMobile, setIsMobile] = useState(false);
 
   const CloseCircle = () => (
     <svg
@@ -25,7 +25,19 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     </svg>
   );
 
+  useEffect(() => {
+    // Detect if the user is on a mobile device
+    const userAgent = navigator.userAgent || navigator.userAgentData;
+    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    setIsMobile(mobileRegex.test(userAgent));
+  }, []);
+
   const openCamera = async () => {
+    if (!isMobile) {
+      alert("Camera access is only available on mobile devices.");
+      return;
+    }
+
     try {
       setShowModal(true);
       setActiveCamera(true);
@@ -108,11 +120,6 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const confirmPhoto = () => {
     setPhotoSource(capturedPhoto);
     onPhotoChange(capturedPhoto);
-    // Add the confirmed photo to the list
-    setConfirmedPhotos([
-      ...confirmedPhotos,
-      { id: Date.now(), image: capturedPhoto, description: "Food photo description" },
-    ]);
     closeModal();
   };
 
@@ -223,7 +230,6 @@ const modalStyle = {
   justifyContent: "center",
   alignItems: "center",
   zIndex: "1000",
-  marginBottom: "100",
 };
 
 const modalContentStyle = {
@@ -233,8 +239,6 @@ const modalContentStyle = {
   borderRadius: "10px",
   width: "90%",
   maxWidth: "500px",
-  marginLeft: "15px",
-  marginRight: "15px",
 };
 
 export default PhotoApp;
