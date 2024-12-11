@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./review.css";
+import "./Review.css";
 
 function Review() {
   const [foodItems, setFoodItems] = useState([]);
