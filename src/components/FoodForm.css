@@ -411,6 +411,7 @@
   overflow-y: auto;
   border-radius: 10px;
   position: relative;
+  margin: 0 15px;
   margin-bottom: 100px;
 }
 
