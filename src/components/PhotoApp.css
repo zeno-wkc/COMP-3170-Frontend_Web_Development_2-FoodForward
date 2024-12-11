@@ -8,7 +8,6 @@
 
 .photo-app-btn:first-of-type {
   margin-top: 20px;
-  text-align: center !important;
 }
 
 .photo-app-btn {
@@ -19,7 +18,7 @@
   border: none;
   font-size: 14px;
   font-weight: 700;
-  text-align: center;
+  text-align: center !important;
   background-color: #FFB000;
   color: #2E2217;
   cursor: pointer;
