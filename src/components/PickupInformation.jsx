@@ -1,4 +1,3 @@
-// PickupInformation.jsx
 import React, { useEffect, useState } from 'react';
 import PickupInformationForm from './PickupInformationForm';
 import './PickupInformation.css';
@@ -6,7 +5,6 @@ import './PickupInformation.css';
 function PickupInformation({ setPickupData, pickupData }) {
   const [foodItems, setFoodItems] = useState([]);
 
-  // On component mount, get foodItems from localStorage and update the state
   useEffect(() => {
     const storedFoodItems = JSON.parse(localStorage.getItem("foodItems"));
     if (storedFoodItems) {

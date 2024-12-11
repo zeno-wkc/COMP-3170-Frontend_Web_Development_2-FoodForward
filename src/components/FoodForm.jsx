@@ -50,7 +50,6 @@ function FoodForm({ setFoodItems }) {
     setIsRefrigerated(false);
     setFoodItems(updatedData);
 
-    // Log the data stored in localStorage
     console.log("Data in Local Storage: ", JSON.parse(localStorage.getItem("foodItems")));
   };
 
