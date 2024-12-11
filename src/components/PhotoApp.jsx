@@ -106,6 +106,7 @@ const modalStyle = {
   justifyContent: "center",
   alignItems: "center",
   zIndex: "1000",
+  margintop: "50",
   marginBottom: "100",
 };
 
