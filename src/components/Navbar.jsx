@@ -24,12 +24,14 @@ function Navbar() {
       <NavLink to="/donate" className={({ isActive }) => (isActive ? 'donate-btn tab active' : 'donate-btn tab')}>
         {({ isActive }) => navButton(isActive, 'Donate', Donateicon)}
       </NavLink>
+      {/* 
       <NavLink to="/message" className={({ isActive }) => (isActive ? 'message-btn tab active' : 'message-btn tab')}>
         {({ isActive }) => navButton(isActive, 'Message', Messageicon)}
       </NavLink>
       <NavLink to="/setting" className={({ isActive }) => (isActive ? 'setting-btn tab active' : 'setting-btn tab')}>
         {({ isActive }) => navButton(isActive, 'Settings', Settingicon)}
-      </NavLink>
+      </NavLink> 
+      */}
     </div>
   );
 }
