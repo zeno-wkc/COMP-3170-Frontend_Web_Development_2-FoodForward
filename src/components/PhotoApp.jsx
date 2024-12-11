@@ -223,6 +223,7 @@ const modalStyle = {
   justifyContent: "center",
   alignItems: "center",
   zIndex: "1000",
+  marginBottom: "100",
 };
 
 const modalContentStyle = {
