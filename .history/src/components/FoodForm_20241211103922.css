@@ -299,7 +299,7 @@
   width: 50%;
   background-color: #d43f3a;
   color: #fff;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .edit-food-card__container .delete-btn:hover {
@@ -411,7 +411,6 @@
   overflow-y: auto;
   border-radius: 10px;
   position: relative;
-  margin-bottom: 100px;
 }
 
 .close-btn {

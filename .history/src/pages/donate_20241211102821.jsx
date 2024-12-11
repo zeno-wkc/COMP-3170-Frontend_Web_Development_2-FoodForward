@@ -10,7 +10,7 @@ function Donate() {
   return (
     <>
       <div className='donate-page__container'>
-        <h2>Donation Form</h2>
+        <h2>Donate Form</h2>
         <MultiStepsBar />
       </div>
     </>

@@ -95,7 +95,7 @@ function FoodForm({ setFoodItems }) {
           Add Food Items
         </button>
         <button onClick={handleClearAll} className="clear-all-btn">
-          Clear All Items
+          Clear All Donations
         </button>
       </div>
 
@@ -240,7 +240,7 @@ function FoodForm({ setFoodItems }) {
                     onClick={() => handleUpdateItem(index)}
                     className="update-btn"
                   >
-                    Edit
+                    Update
                   </button>
                 </div>
               </li>

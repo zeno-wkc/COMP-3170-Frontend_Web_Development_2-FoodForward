@@ -221,7 +221,7 @@ function PickupInformationForm({ setPickupData, pickupData, foodData }) {
       </div>
       <div className='pick-up-btn_container'>
         <button type="button" className="clear-btn" onClick={handleClearAll}>Clear All</button>
-        <button type="submit" className="submit-btn">Save</button>
+        <button type="submit" className="submit-btn">Submit</button>
       </div>
     </form>
   );

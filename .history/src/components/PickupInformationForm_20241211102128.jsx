@@ -187,7 +187,7 @@ function PickupInformationForm({ setPickupData, pickupData, foodData }) {
           </select>
         </div>
         <div className="time-input__container">
-          <label>End-time for pickup:</label>
+          <label>End-time for pick up:</label>
           <ClockIcon size="24" color="#2E2217" />
           <select
             value={endTime}
@@ -221,7 +221,7 @@ function PickupInformationForm({ setPickupData, pickupData, foodData }) {
       </div>
       <div className='pick-up-btn_container'>
         <button type="button" className="clear-btn" onClick={handleClearAll}>Clear All</button>
-        <button type="submit" className="submit-btn">Save</button>
+        <button type="submit" className="submit-btn">Submit</button>
       </div>
     </form>
   );

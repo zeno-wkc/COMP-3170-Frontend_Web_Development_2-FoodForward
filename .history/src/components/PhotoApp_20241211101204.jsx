@@ -120,7 +120,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     <div>
       {!photoSource && !activeCamera && !showModal && (
         <div className="button_container">
-          <h3 className="photo-title">Please provide the photo of food item:</h3>
+          <h3 className="photo-title">Please Provide the Food Photo:</h3>
           <img
             src="./default-img.png"
             width={200}
@@ -152,7 +152,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             </button>
             {activeCamera && (
               <div>
-                <h3 className="photo-title">Take a photo of the food item:</h3>
+                <h3 className="photo-title">Take Your Donate Food Photo:</h3>
                 <video ref={videoRef} autoPlay className="photo-app-video"></video>
                 <button onClick={capturePhoto} className="photo-app-btn">
                   Take Photo
