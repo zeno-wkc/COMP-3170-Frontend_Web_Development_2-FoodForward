@@ -12,13 +12,29 @@
   color: #2E2217;
 }
 
-.pickup-information-form .form-input {
-  width: calc(100% - 20px);
-  height: 40px;
+.company-name-input__container input,
+.tel-input__container input,
+.address-input__container input,
+.postal-code-input__container input {
+  width: calc(100% - 40px);
+  height: 32px;
   padding-left: 20px;
   border: 0px;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #FAE7B2;
+  color: #2E2217;
+}
+
+.pickup-information-form .form-input {
+  width: calc(100% - 40px);
+  height: 32px;
+  padding-left: 20px;
+  border: 0px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
   background-color: #FAE7B2;
   color: #2E2217;
 }
@@ -33,6 +49,22 @@
   align-items: center;
   gap: 15px;
   padding-bottom: 5px;
+}
+
+.pickup-date__container {
+  position: relative;
+}
+
+.pickup-date__container svg {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 20px;
+  z-index: 3;
+}
+
+.donation__container {
+  justify-content: flex-start;
 }
 
 .recurring-donation__container {
@@ -55,6 +87,7 @@
   top: 66%;
   left: 10px;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .time-input__container label {
@@ -72,4 +105,30 @@
   font-weight: 700;
   background-color: #FAE7B2;
   color: #2E2217;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__tab-loop {
+  position: relative;
+  z-index: 3;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.pick-up-btn_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.pick-up-btn_container button, 
+.pick-up-btn_container button.submit-btn {
+  width: 50%;
 }

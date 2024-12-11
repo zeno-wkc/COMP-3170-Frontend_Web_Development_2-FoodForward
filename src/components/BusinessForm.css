@@ -40,6 +40,7 @@
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .business-form .location-btn {

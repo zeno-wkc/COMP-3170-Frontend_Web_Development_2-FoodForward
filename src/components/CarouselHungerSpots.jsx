@@ -3,17 +3,18 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './CarouselHungerSpots.css';
+import { Link } from "react-router-dom";
 
 const sliderImageUrl = [
-  { url: "./bc.jpg" },
-  { url: "./cambridge.jpg" },
-  { url: "./facra_non_verba.jpg" },
-  { url: "./greater_vancouver.jpg" },
-  { url: "./food_banks.png" },
-  { url: "./food_runners.png" },
-  { url: "./food_stash.png" },
-  { url: "./vancouver_school_board.jpg" },
-  { url: "./zero_food_waste.png" },
+  { url: "./bc.jpg", WEBSITE_URL: "https://www.google.com" },
+  { url: "./cambridge.jpg", WEBSITE_URL: "https://www.google.com" },
+  { url: "./facra_non_verba.jpg", WEBSITE_URL: "https://www.google.com" },
+  { url: "./greater_vancouver.jpg", WEBSITE_URL: "https://www.google.com" },
+  { url: "./food_banks.png", WEBSITE_URL: "https://www.google.com" },
+  { url: "./food_runners.png", WEBSITE_URL: "https://www.google.com" },
+  { url: "./food_stash.png", WEBSITE_URL: "https://www.google.com" },
+  { url: "./vancouver_school_board.jpg", WEBSITE_URL: "https://www.google.com" },
+  { url: "./zero_food_waste.png", WEBSITE_URL: "https://www.google.com" },
 ];
 
 function CarouselHungerSpots() {
@@ -35,16 +36,13 @@ function CarouselHungerSpots() {
   };
 
   return (
-    <div
-      className="slider-container"
-      // style={{ width: `${appContainerWidth - 20}px` }}
-    >
+    <div className="slider-container">
       <h2>Hunger Spots</h2>
       <Slider {...settings}>
         { sliderImageUrl.map((image, index) => {
             return (
               <div className='slider-img__container' key={index}>
-                <img src={image.url} alt={`slider-img-${index}`} />
+                <Link to={image.WEBSITE_URL} target="_blank" rel="noopener noreferrer"><img src={image.url} alt={`slider-img-${index}`} /></Link>
               </div>
             );
           })

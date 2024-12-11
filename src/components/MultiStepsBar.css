@@ -11,6 +11,7 @@
   top: 0;
   border-bottom: 1px solid #999;
   background: #fff;
+  z-index: 1000;
 }
 
 .multiProgressBar__container .progress-bar__content {
@@ -50,7 +51,7 @@
   min-height: 30px;
   max-width: 50px;
   margin-bottom: 0;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
   line-height: 12px;
   color: #2E2217;
@@ -72,6 +73,7 @@
   justify-content: center;
   align-items: center;
   gap: 6px;
+  width: 110px;
   height: 50px;
   font-weight: 800;
   color: #999;
@@ -111,4 +113,31 @@
 
 .multiProgressBar__container .btns__container button:hover p {
   color: #fff;
+}
+
+.message-box {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 20px 15px 30px;
+}
+
+.message-box.success {
+  background-color: #28a745;
+  color: white;
+}
+
+.message-box.error {
+  background-color: #dc3545;
+  color: white;
+}
+
+.dismiss-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 15px;
 }

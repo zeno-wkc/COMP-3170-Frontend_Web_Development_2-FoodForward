@@ -14,12 +14,6 @@ const ProgressBarNum = (props) => {
       <div className={`progress ${size ? "progress--" + size : ""} ${ isLoading ? "progress--" + "loading" : "" }`}>
         <div className={`progress-bar`} style={{ width: percent + "%" }}></div>
       </div>
-
-      {/* {isLoading == false && showInfo ? (
-        <span className="progress-info">{percent}%</span>
-      ) : (
-        ""
-      )} */}
     </div>
   );
 };

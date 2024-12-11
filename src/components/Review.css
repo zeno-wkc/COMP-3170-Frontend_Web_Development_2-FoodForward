@@ -1,5 +1,28 @@
 .review__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 15px;
   font-size: 14px;
   text-align: left;
+  color: #000;
+}
+
+.review__container .food-card-items__container .food-card__photo {
+  width: 40%;
+}
+
+.review__container .food-card-items__container {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .food-card__container .food-card-items__container .food-card__photo {
+    width: 400px;
+    height: 210px;
+  }
+}
+.hr-line {
+  width: 100%;
+  border: 1px solid #FFB000;
 }

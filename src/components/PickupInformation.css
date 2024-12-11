@@ -1,5 +1,44 @@
 .pickup-information__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 15px;
   font-size: 14px;
   text-align: left;
+  color: #000;
+}
+
+.pickup-information__container h2 {
+  margin-bottom: 0;
+}
+
+.pickup-information-form h2 {
+  margin-bottom: 20px;
+}
+
+.pickup-information__container h3 {
+  font-weight: bold;
+}
+
+.donate-page__container .food-cards__container {
+  margin: 0;
+}
+
+.food-card-items__container p {
+  font-weight: bold;
+}
+
+.pickup-information__container .food-card-items__container .food-card__photo {
+  width: 40%;
+}
+
+.pickup-information__container .food-card-items__container {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .food-card__container .food-card-items__container .food-card__photo {
+    width: 400px;
+    height: 210px;
+  }
 }

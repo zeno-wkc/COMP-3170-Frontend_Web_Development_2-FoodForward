@@ -1,0 +1,111 @@
+.food-item__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.btn__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.food-item-btn {
+  background-color: #5DB696;
+}
+
+.alert-message {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffe5e5;
+  color: #d9534f;
+  border: 1px solid #d43f3a;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Style for the Clear All button */
+.clear-storage-btn {
+  background-color: #d43f3a; /* Original button color */
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-storage-btn:hover {
+  background-color: #f57c00;
+}
+
+.clear-storage-btn:disabled {
+  background-color: #e0e0e0;
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.clear-storage-btn:disabled:hover {
+  background-color: #e0e0e0;
+}
+
+.confirmation-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-content {
+  min-width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.confirmation-content p {
+  color: #000;
+}
+
+.confirmation-content button {
+  margin: 10px;
+  padding: 10px;
+}
+
+
+.card-display p {
+  color: #000;
+}
+
+.food-listing {
+  margin-top: 20px;
+}
+
+.card-display {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-display p {
+  margin: 5px 0;
+}
+
+.card-display button {
+  margin-right: 5px;
+}

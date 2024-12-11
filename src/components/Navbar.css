@@ -10,6 +10,7 @@
   padding: 15px 0 30px;
   min-width: 430px;
   background-color: #FAE7B2;
+  z-index: 1000;
 }
 
 .nav__container [class*="-btn"]:hover,

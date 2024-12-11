@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import "./PhotoApp.css";
 
 const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
@@ -7,10 +8,22 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const [showModal, setShowModal] = useState(false);
   const videoRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
+  const [confirmedPhotos, setConfirmedPhotos] = useState([]);  // New state to hold confirmed photos
 
-  useEffect(() => {
-    setPhotoSource(currentPhoto);
-  }, [currentPhoto]);
+  const CloseCircle = () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.707 9.293C14.316 8.902 13.684 8.902 13.293 9.293L12 10.586L10.707 9.293C10.316 8.902 9.684 8.902 9.293 9.293C8.902 9.684 8.902 10.316 9.293 10.707L10.586 12L9.293 13.293C8.902 13.684 8.902 14.316 9.293 14.707C9.488 14.902 9.744 15 10 15C10.256 15 10.512 14.902 10.707 14.707L12 13.414L13.293 14.707C13.488 14.902 13.744 15 14 15C14.256 15 14.512 14.902 14.707 14.707C15.098 14.316 15.098 13.684 14.707 13.293L13.414 12L14.707 10.707C15.098 10.316 15.098 9.684 14.707 9.293ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20ZM12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2Z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
 
   const openCamera = async () => {
     try {
@@ -26,8 +39,9 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     const enableCamera = async () => {
       if (activeCamera && videoRef.current) {
         try {
-          console.log(videoRef.current);
-          const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "user" },
+          });
           videoRef.current.srcObject = stream;
           videoRef.current.play();
         } catch (error) {
@@ -38,6 +52,15 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     };
 
     enableCamera();
+
+    // Cleanup on unmount
+    return () => {
+      if (videoRef.current?.srcObject) {
+        const stream = videoRef.current.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach((track) => track.stop());
+      }
+    };
   }, [activeCamera]);
 
   const capturePhoto = () => {
@@ -52,7 +75,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     setCapturedPhoto(photo);
 
     const stream = video.srcObject;
-    const tracks = stream.getTracks({ audio: false, video: true });
+    const tracks = stream.getTracks();
     tracks.forEach((track) => track.stop());
     video.srcObject = null;
     setActiveCamera(false);
@@ -61,8 +84,13 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const handlePhotoAlbum = (event) => {
     const file = event.target.files[0];
     if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        alert("File size exceeds the limit of 2MB.");
+        return;
+      }
       const imageUrl = URL.createObjectURL(file);
       setPhotoSource(imageUrl);
+      onPhotoChange(imageUrl);
     }
   };
 
@@ -80,6 +108,11 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const confirmPhoto = () => {
     setPhotoSource(capturedPhoto);
     onPhotoChange(capturedPhoto);
+    // Add the confirmed photo to the list
+    setConfirmedPhotos([
+      ...confirmedPhotos,
+      { id: Date.now(), image: capturedPhoto, description: "Food photo description" },
+    ]);
     closeModal();
   };
 
@@ -87,20 +120,40 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     <div>
       {!photoSource && !activeCamera && !showModal && (
         <div className="button_container">
-          <h3 className="photo-title">Food Photo:</h3>
-          <button onClick={openCamera} className="photo-app-btn">Open Camera</button>
-          <label htmlFor="photo-album" className="photo-app-btn">Choose from Album</label>
-          <input id="photo-album" type="file" accept="image/*" onChange={handlePhotoAlbum} style={{ display: "none" }} />
+          <h3 className="photo-title">Please Provide the Food Photo:</h3>
+          <img
+            src="./default-img.png"
+            width={200}
+            height={200}
+            alt="Captured"
+            className="photo-app-img"
+          />
+          <button onClick={openCamera} className="photo-app-btn">
+            Open Camera
+          </button>
+          <label htmlFor="photo-album" className="photo-app-btn">
+            Choose from Album
+          </label>
+          <input
+            id="photo-album"
+            type="file"
+            accept="image/*"
+            onChange={handlePhotoAlbum}
+            style={{ display: "none" }}
+          />
         </div>
       )}
 
       {showModal && (
         <div style={modalStyle}>
           <div style={modalContentStyle}>
-            <button onClick={closeModal} style={closeButtonStyle}>X</button>
+            <button onClick={closeModal} className="photo-app-close-btn">
+              <CloseCircle />
+            </button>
             {activeCamera && (
               <div>
-                <video ref={videoRef} autoPlay style={{ width: "100%", height: "auto", border: "1px solid black", marginTop: "10px" }} ></video>
+                <h3 className="photo-title">Take Your Donate Food Photo:</h3>
+                <video ref={videoRef} autoPlay className="photo-app-video"></video>
                 <button onClick={capturePhoto} className="photo-app-btn">
                   Take Photo
                 </button>
@@ -109,12 +162,16 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             {capturedPhoto && (
               <div>
                 <h3 className="photo-title">Photo Preview:</h3>
-                <img src={capturedPhoto} alt="Captured" className="photo-app-img"/>
+                <img
+                  src={capturedPhoto}
+                  alt="Captured"
+                  className="photo-app-img"
+                />
                 <button onClick={resetPhoto} className="photo-app-btn">
-                  Retake
+                  Retake Photo
                 </button>
                 <button onClick={confirmPhoto} className="photo-app-btn">
-                  Confirm
+                  Confirm Photo
                 </button>
               </div>
             )}
@@ -124,39 +181,35 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
 
       {photoSource && !showModal && (
         <div>
-          <p>a</p>
-          <img src={photoSource} alt="Captured" className="photo-app-img" />
-          <div>
-            {isEditing && (
-              <>
-                <button onClick={openCamera} className="photo-app-btn">Retake Photo</button>
-                <label htmlFor="photo-album" className="photo-app-btn">Choose from Album</label>
-                <input
-                  id="photo-album"
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoAlbum}
-                  style={{ display: "none" }}
-                />
-              </>
-            )}
-          </div>
+          <h3 className="photo-title">Food Photo:</h3>
+          <img src={photoSource} alt="Food" className="photo-app-img" />
+          {isEditing && (
+            <div>
+              <button onClick={openCamera} className="photo-app-btn">
+                Retake Photo
+              </button>
+              <label htmlFor="photo-album" className="photo-app-btn">
+                Choose from Album
+              </label>
+              <input
+                id="photo-album"
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoAlbum}
+                style={{ display: "none" }}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 };
 
-const closeButtonStyle = {
-  position: "absolute",
-  top: "10px",
-  right: "10px",
-  backgroundColor: "#dc3545",
-  color: "#fff",
-  padding: "5px 10px",
-  borderRadius: "50%",
-  border: "none",
-  cursor: "pointer",
+PhotoApp.propTypes = {
+  isEditing: PropTypes.bool.isRequired,
+  currentPhoto: PropTypes.string,
+  onPhotoChange: PropTypes.func.isRequired,
 };
 
 const modalStyle = {
@@ -179,14 +232,6 @@ const modalContentStyle = {
   borderRadius: "10px",
   width: "90%",
   maxWidth: "500px",
-};
-
-const imageStyle = {
-  width: "100%",
-  maxWidth: "400px",
-  borderRadius: "8px",
-  marginTop: "10px",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
 };
 
 export default PhotoApp;

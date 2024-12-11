@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .photo-app-btn:first-of-type {
   margin-top: 20px;
+  text-align: center;
 }
 
 .photo-app-btn {
@@ -24,6 +25,10 @@
   cursor: pointer;
 }
 
+.photo-app-btn:hover {
+  color: #fff;
+}
+
 label.photo-app-btn {
   display: block;
   width: calc(100% - 40px);
@@ -36,9 +41,33 @@ label.photo-app-btn {
   border-radius: 8px;
   margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(25, 117, 83, 0.1);
 }
 
 .photo-title {
   width: 100%;
+  margin: 6px 0;
+  font-size: 18.72px;
+  font-weight: bold;
+  text-align: left;
   color: #000;
+}
+
+.photo-app-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 5px 2px;
+  border: none;
+  border-radius: 30%;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.photo-app-video {
+  width: 100%; 
+  height: auto; 
+  margin-top: 20px;
 }

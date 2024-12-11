@@ -18,9 +18,9 @@ const data = [{
 }];
 
 const cardsListing = (data) => {
-  return data.map(({ id, title, message, imgPath }) => (
-    <Link to='/donate'>
-      <HomeMessageCard key={id} id={id} title={title} message={message} image={imgPath} />
+  return data.map(({ id, title, message, imgPath, path }) => (
+    <Link key={id} to={path}>
+      <HomeMessageCard id={id} title={title} message={message} image={imgPath} />
     </Link>
   ));
 }
