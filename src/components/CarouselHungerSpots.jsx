@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './CarouselHungerSpots.css';
-import { Link } from "react-router-dom";
 
 const sliderImageUrl = [
   { url: "./bc.jpg", WEBSITE_URL: "https://www.foodbanksbc.com/" },
@@ -13,7 +12,7 @@ const sliderImageUrl = [
   { url: "./food_banks.png", WEBSITE_URL: "https://foodbankscanada.ca/" },
   { url: "./food_runners.png", WEBSITE_URL: "https://www.vancouverfoodrunners.com/" },
   { url: "./food_stash.png", WEBSITE_URL: "https://www.foodstash.ca/" },
-  { url: "./vancouver_school_board.jpg", WEBSITE_URL: "https://www.vsb.bc.ca/"},
+  { url: "./vancouver_school_board.jpg", WEBSITE_URL: "https://www.vsb.bc.ca/" },
   { url: "./zero_food_waste.png", WEBSITE_URL: "https://www.zerofoodwaste.ca/" },
 ];
 
@@ -39,14 +38,13 @@ function CarouselHungerSpots() {
     <div className="slider-container">
       <h2>Hunger Spots</h2>
       <Slider {...settings}>
-        { sliderImageUrl.map((image, index) => {
-            return (
-              <div className='slider-img__container' key={index}>
-                <Link to={image.WEBSITE_URL} target="_blank" rel="noopener noreferrer"><img src={image.url} alt={`slider-img-${index}`} /></Link>
-              </div>
-            );
-          })
-        }
+        {sliderImageUrl.map((image, index) => (
+          <div className="slider-img__container" key={index}>
+            <a href={image.WEBSITE_URL} target="_blank" rel="noopener noreferrer">
+              <img src={image.url} alt={`slider-img-${index}`} />
+            </a>
+          </div>
+        ))}
       </Slider>
     </div>
   );
