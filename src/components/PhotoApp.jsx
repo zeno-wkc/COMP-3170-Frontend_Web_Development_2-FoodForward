@@ -233,6 +233,8 @@ const modalContentStyle = {
   borderRadius: "10px",
   width: "90%",
   maxWidth: "500px",
+  marginLeft: "15px",
+  marginRight: "15px",
 };
 
 export default PhotoApp;
