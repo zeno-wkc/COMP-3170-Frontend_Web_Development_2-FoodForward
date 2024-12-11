@@ -194,13 +194,10 @@
 .create-new-btn {
   width: 100%;
   background-color: #197553;
-  color:#fff;
-  font-weight:800;
 }
 
 .clear-all-btn {
   margin-top: 15px;
-
 }
 
 .food-cards__container {
@@ -298,8 +295,6 @@
 .edit-food-card__container .delete-btn {
   width: 50%;
   background-color: #d43f3a;
-  color: #fff;
-  font-weight: 600;
 }
 
 .edit-food-card__container .delete-btn:hover {

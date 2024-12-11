@@ -55,7 +55,7 @@ const MultiProgressBar = () => {
   
       if (response.status === 'Success') {
         setMessageType("success");
-        setMessageBox('Thank you! The donation form has been successfully sent!');
+        setMessageBox('The request was successfully sent out!');
   
         localStorage.removeItem('foodItems');
         localStorage.removeItem('pickupData');

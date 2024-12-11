@@ -240,7 +240,7 @@ function FoodForm({ setFoodItems }) {
                     onClick={() => handleUpdateItem(index)}
                     className="update-btn"
                   >
-                    Edit
+                    Update
                   </button>
                 </div>
               </li>

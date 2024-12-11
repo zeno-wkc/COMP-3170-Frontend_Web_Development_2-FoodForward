@@ -120,7 +120,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
     <div>
       {!photoSource && !activeCamera && !showModal && (
         <div className="button_container">
-          <h3 className="photo-title">Please provide the photo of food item:</h3>
+          <h3 className="photo-title">Please provide the photo of food items:</h3>
           <img
             src="./default-img.png"
             width={200}
