@@ -28,8 +28,8 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   useEffect(() => {
     // Detect if the user is on a mobile device
     const userAgent = navigator.userAgent || navigator.userAgentData;
-    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    setIsMobile(mobileRegex.test(userAgent));
+    // const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    // setIsMobile(mobileRegex.test(userAgent));
   }, []);
 
   const openCamera = async () => {
@@ -135,20 +135,12 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             alt="Captured"
             className="photo-app-img"
           />
-          {isMobile && (
-            <button onClick={openCamera} className="take-photo-app-btn">
-              Open Camera
-            </button>
-          )}
-          {!isMobile ? (
-            <label htmlFor="photo-album" className="album-photo-app-btn">
-              Choose from Album
-            </label>
-          ) : (
-            <label htmlFor="photo-album" className="album-photo-app-btn">
-              Choose Take Photo or Album
-            </label>
-          )}
+          <button onClick={openCamera} className="photo-app-btn">
+            Open Camera
+          </button>
+          <label htmlFor="photo-album" className="photo-app-btn">
+            Choose from Album
+          </label>
           <input
             id="photo-album"
             type="file"
