@@ -28,15 +28,15 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   useEffect(() => {
     // Detect if the user is on a mobile device
     const userAgent = navigator.userAgent || navigator.userAgentData;
-    // const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    // setIsMobile(mobileRegex.test(userAgent));
+    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    setIsMobile(mobileRegex.test(userAgent));
   }, []);
 
   const openCamera = async () => {
-    // if (!isMobile) {
-    //   alert("Camera access is only available on mobile devices.");
-    //   return;
-    // }
+    if (isMobile) {
+      document.getElementById("photo-camera-mobile").click();
+      return;
+    }
 
     try {
       setShowModal(true);
@@ -65,7 +65,6 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
 
     enableCamera();
 
-    // Cleanup on unmount
     return () => {
       if (videoRef.current?.srcObject) {
         const stream = videoRef.current.srcObject;
@@ -96,7 +95,7 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
   const handlePhotoAlbum = (event) => {
     const file = event.target.files[0];
     if (file) {
-      if (file.size > 2 * 1024 * 1024) {
+      if (file.size > 6 * 1024 * 1024) {
         alert("File size exceeds the limit of 2MB.");
         return;
       }
@@ -145,6 +144,14 @@ const PhotoApp = ({ isEditing, currentPhoto, onPhotoChange }) => {
             id="photo-album"
             type="file"
             accept="image/*"
+            onChange={handlePhotoAlbum}
+            style={{ display: "none" }}
+          />
+          <input
+            id="photo-camera-mobile"
+            type="file"
+            accept="image/*"
+            capture="environment"
             onChange={handlePhotoAlbum}
             style={{ display: "none" }}
           />
