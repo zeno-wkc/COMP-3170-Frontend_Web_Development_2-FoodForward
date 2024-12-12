@@ -221,7 +221,7 @@ PhotoApp.propTypes = {
 
 const modalStyle = {
   position: "fixed",
-  top: "50",
+  top: "0",
   left: "0",
   right: "0",
   bottom: "0",
@@ -243,6 +243,7 @@ const modalContentStyle = {
   maxWidth: "500px",
   marginLeft: "15px",
   marginRight: "15px",
+  overflowY: "scroll",
 };
 
 export default PhotoApp;
