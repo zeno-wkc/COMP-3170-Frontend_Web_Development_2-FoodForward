@@ -221,7 +221,7 @@ PhotoApp.propTypes = {
 
 const modalStyle = {
   position: "fixed",
-  top: "0",
+  top: "50",
   left: "0",
   right: "0",
   bottom: "0",
@@ -239,7 +239,7 @@ const modalContentStyle = {
   backgroundColor: "#fff",
   padding: "20px",
   borderRadius: "10px",
-  width: "90%",
+  width: "80%",
   maxWidth: "500px",
   marginLeft: "15px",
   marginRight: "15px",
