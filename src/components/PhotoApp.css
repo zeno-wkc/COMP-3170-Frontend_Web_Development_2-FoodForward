@@ -6,13 +6,10 @@
   gap: 5px;
 }
 
-.photo-app-btn:first-of-type {
-  margin-top: 20px;
-}
-
-.photo-app-btn {
-  width: 100%;
+.album-photo-app-btn {
+  width: calc(100% - 40px) !important;
   padding: 10px 20px;
+  margin-top: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
@@ -22,6 +19,20 @@
   background-color: #FFB000;
   color: #2E2217;
   cursor: pointer;
+}
+
+.take-photo-app-btn {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center !important;
+  background-color: #FFB000;
+  color: #2E2217;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .photo-app-btn:hover {
